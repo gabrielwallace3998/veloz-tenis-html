@@ -1590,33 +1590,31 @@ body {
 
   .banner-grid {
     display: flex;
-    /* Muda de grid para flex para permitir scroll horizontal */
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    gap: 12px;
-    padding: 10px 5px 20px;
+    gap: 16px;
+    padding: 10px 0 25px;
     scrollbar-width: none;
-    /* Esconde barra no Firefox */
+    -ms-overflow-style: none;
   }
 
-  /* Esconde barra no Chrome/Safari */
   .banner-grid::-webkit-scrollbar {
     display: none;
   }
 
   .overlay-card {
-    flex: 0 0 82% !important;
-    scroll-snap-align: center !important;
-    aspect-ratio: 18 / 26 !important;
+    flex: 0 0 85%;
+    max-width: 320px;
+    scroll-snap-align: center;
+    aspect-ratio: 18 / 23;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
   }
 }
 
-/* Ajuste fino para telas muito pequenas, mostrando "dois principais" como solicitado */
+/* Ajuste fino para telas muito pequenas */
 @media (max-width: 500px) {
   .overlay-card {
-    flex: 0 0 78% !important;
-    scroll-snap-align: center !important;
+    flex: 0 0 88%;
   }
 }
 
@@ -3288,6 +3286,32 @@ body {
     max-width: 150px;
   }
 
+  /* Configuração de Layout da HOME (Navegação em Carrossel Horizontal) */
+  body[data-page="home"] .product-grid,
+  body[data-page="home"] .banner-grid {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding: 10px 0 30px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  body[data-page="home"] .product-grid::-webkit-scrollbar,
+  body[data-page="home"] .banner-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  body[data-page="home"] .product-card,
+  body[data-page="home"] .banner-card {
+    flex: 0 0 240px;
+    max-width: 85vw;
+    scroll-snap-align: start;
+    min-height: auto;
+  }
+
   .footer-copy {
     margin: 0 !important;
     padding: 0 !important;
@@ -3564,20 +3588,27 @@ body {
     font-weight: 900;
   }
 
-  /* Configuração de Layout da HOME (Carrossel) */
+  /* Configuração de Layout da HOME (Navegação em Carrossel Horizontal) */
   body[data-page="home"] .product-grid {
     display: flex !important;
-    overflow-x: auto;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
     scroll-snap-type: x mandatory;
-    gap: 12px;
-    padding: 10px 5px 30px;
+    gap: 16px;
+    padding: 10px 0 30px;
     scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  body[data-page="home"] .product-grid::-webkit-scrollbar {
+    display: none;
   }
 
   body[data-page="home"] .product-card {
-    flex: 0 0 185px;
-    /* Define a largura no carrossel */
+    flex: 0 0 240px;
+    /* Largura mais confortável para visualizar os detalhes */
     scroll-snap-align: start;
+    min-height: auto;
   }
 
   /* Configuração de Layout do CATÁLOGO (Grade 2x2) */
@@ -3624,12 +3655,15 @@ body {
   }
 
   /* Ajuste no padding para não esconder conteúdo atrás da barra inferior fixa */
+  /* Removemos o padding excessivo que criava o vácuo no fundo */
   .footer-area {
-    padding-bottom: 90px;
+    padding-bottom: 40px;
+    /* Espaço reduzido que será complementado pelo padding da .page */
   }
 
+  /* Aplica o padding apenas uma vez no container principal para dar folga para a Bottom Bar */
   .page {
-    padding-bottom: 90px;
+    padding-bottom: 100px;
   }
 }
 
