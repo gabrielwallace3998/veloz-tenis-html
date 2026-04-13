@@ -255,8 +255,9 @@ function buildHeader() {
   root.className = 'site-header';
   root.innerHTML = `
     <div class="header-wrap" style="padding: 0 24px;">
-      <a href="${ROOT_PREFIX}index.html" class="logo" title="Ir para o Início">
-        <img src="${ASSETS_PREFIX}images/logo.png" alt="Veloz Tênis" style="height: 80px; width: auto; object-fit: contain; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+      <a href="${ROOT_PREFIX}index.html" class="logo" title="Ir para o Início" style="display: flex; align-items: center; gap: 4px;">
+        <img src="${ASSETS_PREFIX}images/veloz-logo.png" alt="Logo" style="height: 50px; width: auto; object-fit: contain;">
+        <img src="${ASSETS_PREFIX}images/veloz-tenis-escrita.png" alt="Veloz Tênis" style="height: 38px; width: auto; object-fit: contain;">
       </a>
 
       <div class="header-center">

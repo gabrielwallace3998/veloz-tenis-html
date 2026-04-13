@@ -21,6 +21,7 @@ const STATIC_ASSETS = [
   './js/produtos.js',
   './json/manifest.json',
   './images/logo.png',
+  './images/veloz-logo.png',
   './images/veloz-tenis-escrita.png'
 ];
 
