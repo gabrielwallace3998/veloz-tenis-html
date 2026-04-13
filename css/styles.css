@@ -3241,6 +3241,11 @@ body {
     min-height: auto;
   }
 
+  .product-name { font-size: 0.9rem !important; }
+  .product-desc { display: none !important; }
+  .price-current { font-size: 1.1rem !important; }
+  .price-old { font-size: 0.8rem !important; }
+
   .overlay-card {
     flex: 0 0 85% !important;
     max-width: 310px;
