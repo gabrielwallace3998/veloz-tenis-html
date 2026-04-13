@@ -3405,6 +3405,68 @@ body {
     line-height: 1.5;
   }
 
+  /* --- CARRINHO, CHECKOUT E SUCESSO MOBILE --- */
+  
+  /* Layouts em 1 Coluna */
+  .cart-layout, .checkout-layout {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+
+  /* Barra de Progresso Compacta */
+  .progress-bar {
+    margin: 0 auto 24px;
+    max-width: 100%;
+  }
+  .step-label { font-size: 0.65rem; }
+  .step-dot { width: 32px; height: 32px; font-size: 0.8rem; }
+  .progress-step::before { top: 16px; }
+
+  /* Cards do Carrinho Mobile */
+  .cart-card {
+    grid-template-columns: 80px 1fr !important;
+    padding: 12px;
+    gap: 12px;
+  }
+  .cart-card img { width: 80px; height: 80px; }
+  .cart-item-name { font-size: 0.9rem; }
+  .item-price-col {
+    text-align: left;
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    grid-column: 2;
+  }
+  .item-price-col strong { margin-bottom: 0; font-size: 1rem; }
+  .remove-item { font-size: 0.75rem; color: var(--red); }
+
+  /* Checkout Form Mobile */
+  .checkout-form {
+    padding: 20px;
+    gap: 20px;
+  }
+  .checkout-form h2 { font-size: 1rem; }
+  .form-grid.two, .form-grid.three {
+    grid-template-columns: 1fr !important;
+  }
+  .input-group label { font-size: 0.82rem; }
+  .input-group input { height: 46px; }
+
+  /* Tela de Sucesso Mobile */
+  .success-screen {
+    padding: 40px 16px;
+    text-align: center;
+  }
+  .success-icon { font-size: 3rem; }
+  .success-screen h1 { font-size: 1.5rem !important; }
+  .success-screen p { font-size: 0.9rem; }
+
+  /* Resumo e Botões Mobile */
+  .summary-card { padding: 20px; }
+  .summary-card h3 { font-size: 1rem; }
+  .btn-lg.btn-full { height: 50px; font-size: 0.95rem; }
+
   /* Seção Imersiva (Mais Opções) */
   .immersive-options {
     height: auto;
@@ -3418,7 +3480,7 @@ body {
 
 /* --- DISPOSITIVOS MUITO PEQUENOS (500px) --- */
 @media (max-width: 500px) {
-  .logo img:last-child { display: none !important; } /* Esconde escrita p/ caber tudo */
-  .product-card { flex: 0 0 210px !important; }
+  .logo img:last-child { display: none !important; } 
   .hero-copy h1 { font-size: 2.2rem; }
+  .cart-item-name { max-width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 }
