@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Veloz Tênis — A loja neon de tênis premium. Visual futurista, experiência fluida." />
+  <title>Veloz Tênis | Home</title>
+  <link rel="manifest" href="json/manifest.json" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <!-- Arquivo central de estilos -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body data-page="home">
+
+  <!-- Loader -->
+  <div class="loader-screen" id="loader">
+    <div class="loader-brand">
+      <span class="loader-logo"><img src="images/logo.png" alt="Logo"></span>
+      <p>Carregando sua experiência ...</p>
+      <div class="loader-bar"><span></span></div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header id="site-header"></header>
+
+  <!-- Promo Bar -->
+  <div id="promo-bar"></div>
+
+  <!-- Mobile Nav -->
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="index.html" class="active">🏠 Home</a>
+    <a href="html/catalogo.html">👟 Catálogo</a>
+    <a href="html/wishlist.html">❤️ Favoritos</a>
+    <a href="html/carrinho.html">🛒 Carrinho</a>
+    <a href="html/checkout.html">⚡ Checkout</a>
+  </nav>
+
+  <!-- Barra de navegação inferior (Mobile) injetada via JS -->
+  <div class="bottom-bar" id="bottom-bar"></div>
+
+  <main class="page">
+    <!-- Composite Banner System (Static BG + 4 Clickable Banners) -->
+    <section class="composite-banner reveal">
+      <!-- Overlay clicável centralizado com os 4 banners de 700x900 (Estilo Visual) -->
+      <div class="container banner-overlay-container">
+        <div class="banner-grid">
+          <a href="html/catalogo.html?brand=New Balance" class="overlay-card">
+            <img src="images/new-balance-1.png" alt="Drop 1">
+          </a>
+          <a href="html/catalogo.html?brand=Nike" class="overlay-card">
+            <img src="images/nike-1.png" alt="Drop 2">
+          </a>
+          <a href="html/catalogo.html?brand=Puma" class="overlay-card">
+            <img src="images/puma-1.png" alt="Drop 3">
+          </a>
+          <a href="html/catalogo.html?brand=Adidas" class="overlay-card">
+            <img src="images/adidas-1.png" alt="Drop 4">
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hero Section -->
+
+
+    <!-- Showcase Section -->
+    <section class="section reveal">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">mais vendidos</span>
+            <h2>Os Modelos mais Procurados</h2>
+            <p>Confira os tênis que estão sendo os mais procurados.</p>
+          </div>
+        <div id="home-showcase" class="product-grid"></div>
+        <div class="section-footer reveal" style="margin-top: 40px; text-align: center;">
+          <a href="html/catalogo.html" class="btn-outline btn-lg">Ver catálogo completo →</a>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- Recently Viewed -->
+    <section class="section reveal" id="recently-viewed-section" style="display:none;">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">seus passos recentes</span>
+            <h2>Vistos recentemente</h2>
+          </div>
+        </div>
+        <div id="recently-viewed-grid" class="product-grid"></div>
+      </div>
+    </section>
+
+
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Scroll Top -->
+  <button class="scroll-top" id="scroll-top" aria-label="Voltar ao topo">↑</button>
+
+  <!-- Modal Root -->
+  <div id="modal-root"></div>
+
+  <!-- Mini Cart -->
+  <div id="mini-cart-root"></div>
+
+  <!-- Scripts Principais -->
+  <script src="js/produtos.js"></script> <!-- Base de dados dos produtos -->
+  <script src="js/animations.js"></script> <!-- Efeitos e animações visuais -->
+  <script src="js/app.js"></script> <!-- Lógica principal da loja -->
+
+  <script>
+    // Registro do PWA - Agora na raiz corrigindo erro de escopo
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js', { scope: './' })
+        .then(() => console.log('PWA: Ativo na raiz ✅'))
+        .catch(() => {});
+    }
+  </script>
+</body>
+
+</html>
