@@ -282,10 +282,22 @@ function buildHeader() {
       </div>
     </div>`;
 
+  const mobileNav = document.getElementById('mobile-nav');
+  const ham = document.getElementById('hamburger-btn');
+
+  // Popular o menu mobile dinamicamente para garantir caminhos corretos
+  if (mobileNav) {
+    mobileNav.innerHTML = `
+      <a href="${ROOT_PREFIX}index.html" class="${page === 'home' ? 'active' : ''}">🏠 Home</a>
+      <a href="${PATH_PREFIX}catalogo.html" class="${page === 'catalogo' ? 'active' : ''}">👟 Catálogo</a>
+      <a href="${PATH_PREFIX}wishlist.html" class="${page === 'wishlist' ? 'active' : ''}">❤️ Favoritos</a>
+      <a href="${PATH_PREFIX}carrinho.html" class="${page === 'carrinho' ? 'active' : ''}">🛒 Carrinho</a>
+      <a href="${PATH_PREFIX}checkout.html" class="${page === 'checkout' ? 'active' : ''}">⚡ Checkout</a>
+    `;
+  }
+
   const form = document.getElementById('header-search-form');
   const input = document.getElementById('header-search-input');
-  const ham = document.getElementById('hamburger-btn');
-  const mobileNav = document.getElementById('mobile-nav');
 
   form?.addEventListener('submit', e => {
     e.preventDefault();
