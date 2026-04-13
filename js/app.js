@@ -286,7 +286,9 @@ function buildHeader() {
   const ham = document.getElementById('hamburger-btn');
   const mobileNav = document.getElementById('mobile-nav');
 
-  // Captura o evento de busca e redireciona para o catálogo com o termo pesquisado
+  form?.addEventListener('submit', e => {
+    e.preventDefault();
+    const term = input.value.trim();
     window.location.href = term ? `${PATH_PREFIX}catalogo.html?q=${encodeURIComponent(term)}` : `${PATH_PREFIX}catalogo.html`;
   });
 
@@ -306,6 +308,7 @@ function buildHeader() {
     });
   }
 }
+
 
 /* ════════════════════════════════════════════════════════
    6. BOTTOM BAR (MOBILE NAV)

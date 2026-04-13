@@ -4,7 +4,7 @@
    e permite que o site funcione offline.
    ═══════════════════════════════════════════════════════ */
 
-const CACHE_NAME = 'veloztenis-v6'; // Versão atualizada com logo.png correto
+const CACHE_NAME = 'veloztenis-v7'; 
 
 const STATIC_ASSETS = [
   './',                
@@ -26,7 +26,10 @@ const STATIC_ASSETS = [
 
 self.addEventListener('install', e => {
   e.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(STATIC_ASSETS))
+    caches.open(CACHE_NAME).then(cache => {
+      console.log('SW: Precache start');
+      return cache.addAll(STATIC_ASSETS);
+    })
   );
   self.skipWaiting();
 });
@@ -43,15 +46,26 @@ self.addEventListener('activate', e => {
 });
 
 self.addEventListener('fetch', e => {
+  // Ignora requisições de outras origens ou que não sejam GET
+  if (e.request.method !== 'GET') return;
+  if (!e.request.url.startsWith(self.location.origin)) return;
+
+  // Ignora APIs de terceiros e fontes
   if (e.request.url.includes('viacep.com.br')) return;
   if (e.request.url.includes('fonts.googleapis') || e.request.url.includes('fonts.gstatic')) return;
 
   e.respondWith(
     caches.match(e.request).then(cached => {
-      if (cached) return cached;
-      return fetch(e.request).catch(() => {
-        return caches.match('./index.html');
+      // Se estiver no cache, retorna. Caso contrário, busca na rede.
+      return cached || fetch(e.request).catch(() => {
+        // Fallback: se for uma navegação de página, retorna o index.html
+        if (e.request.mode === 'navigate') {
+          return caches.match('./index.html');
+        }
       });
+    }).catch(() => {
+      // Se tudo falhar, retorna erro básico do navegador
+      return fetch(e.request);
     })
   );
 });
