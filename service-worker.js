@@ -4,7 +4,7 @@
    e permite que o site funcione offline.
    ═══════════════════════════════════════════════════════ */
 
-const CACHE_NAME = 'veloztenis-v4'; // Versão atualizada para nova estrutura
+const CACHE_NAME = 'veloztenis-v5'; // Versão atualizada com logo.PNG correto
 
 const STATIC_ASSETS = [
   './',                

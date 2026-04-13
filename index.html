@@ -124,11 +124,26 @@
   <script src="js/app.js"></script> <!-- Lógica principal da loja -->
 
   <script>
-    // Registro do PWA - Agora na raiz corrigindo erro de escopo
+    // Registro do PWA com auto-update forçado
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('service-worker.js', { scope: './' })
-        .then(() => console.log('PWA: Ativo na raiz ✅'))
+        .then(reg => {
+          console.log('PWA: Ativo na raiz ✅');
+          // Força atualização imediata do SW
+          reg.update();
+        })
         .catch(() => {});
+      
+      // Limpa todos os caches antigos (força rebuild)
+      if ('caches' in window) {
+        caches.keys().then(names => {
+          names.forEach(name => {
+            if (name.includes('veloztenis-v') && !name.includes('v5')) {
+              caches.delete(name);
+            }
+          });
+        });
+      }
     }
   </script>
 </body>
