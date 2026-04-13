@@ -499,7 +499,7 @@ function createProductCard(product, showQuickView = true) {
       <a href="${PATH_PREFIX}produto.html?id=${product.id}" class="product-thumb">
         <img src="${normalizeImagePath(product.images[0])}" alt="${product.name}" loading="lazy" />
         <span class="product-badge">${product.badge}</span> <!-- Etiqueta promocional -->
-        <span class="viewers-badge">👁 <strong class="viewers-count">${Math.floor(10 + product.reviews * 0.08)}</strong> vendo agora</span>
+        <span class="viewers-badge">👁 <strong class="viewers-count">${Math.floor(10 + product.reviews * 0.08)}</strong> <span class="badge-label">vendo agora</span></span>
         <button class="wishlist-btn ${inWL ? 'active' : ''}" data-wl="${product.id}" aria-label="Favoritar">
           ${inWL ? '❤️' : '🤍'} <!-- Ícone de coração preenchido se já for favorito -->
         </button>

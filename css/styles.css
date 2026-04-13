@@ -3244,10 +3244,25 @@ body {
     min-height: auto;
   }
 
-  .product-name { font-size: 0.9rem !important; }
-  .product-desc { display: none !important; }
+  .product-name { 
+    font-size: 0.9rem !important; 
+    margin-bottom: 2px !important;
+  }
+  .product-desc, .stars, .badge-label { display: none !important; }
   .price-current { font-size: 1.1rem !important; }
   .price-old { font-size: 0.8rem !important; }
+
+  /* Compactação do info do produto */
+  .product-info {
+    padding: 12px !important;
+    gap: 2px !important;
+  }
+
+  /* Simplifica o badge "Vendo Agora" */
+  .viewers-badge {
+    padding: 4px 10px !important;
+    font-size: 0.8rem !important;
+  }
 
   .overlay-card {
     flex: 0 0 85% !important;
