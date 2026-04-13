@@ -3235,9 +3235,12 @@ body {
   body[data-page="home"] .product-grid::-webkit-scrollbar,
   .banner-grid::-webkit-scrollbar { display: none; }
 
-  .product-card {
+  body[data-page="home"] .product-card {
     flex: 0 0 240px !important; 
     scroll-snap-align: start;
+  }
+
+  .product-card {
     min-height: auto;
   }
 
@@ -3252,23 +3255,23 @@ body {
     scroll-snap-align: center;
   }
 
-  /* Padronização do Catálogo Mobile para o estilo Carrossel da Index */
+  /* Catálogo Mobile: 2 Colunas (Uma embaixo da outra) */
   body[data-page="catalogo"] .product-grid {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-    gap: 16px;
-    padding: 10px 16px 30px !important;
-    margin: 0 -16px;
-    width: calc(100% + 32px) !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px;
+    padding: 16px !important;
+    margin: 0 !important;
+    width: 100% !important;
     max-width: none !important;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    overflow: visible !important;
   }
 
-  body[data-page="catalogo"] .product-grid::-webkit-scrollbar { display: none; }
+  body[data-page="catalogo"] .product-card {
+    width: 100% !important;
+    flex: unset !important;
+    min-height: auto;
+  }
 
   /* Rodapé Mobile */
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
