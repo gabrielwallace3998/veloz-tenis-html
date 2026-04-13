@@ -12,7 +12,8 @@
    ════════════════════════════════════════════════════════ */
 // Detecta se estamos na raiz ou na pasta html/
 const isInHtmlFolder = window.location.pathname.includes('/html/');
-const PATH_PREFIX = isInHtmlFolder ? '' : 'html/';
+const PATH_PREFIX = isInHtmlFolder ? '' : 'html/'; // Para páginas dentro de html/
+const ROOT_PREFIX = isInHtmlFolder ? '../' : ''; // Para voltar à raiz (index.html)
 const ASSETS_PREFIX = isInHtmlFolder ? '../' : '';
 
 // Normaliza caminhos de imagens dos produtos
@@ -245,7 +246,7 @@ function buildHeader() {
   const cartCount = Storage.getCart().reduce((s, i) => s + i.quantity, 0);
 
   const navLinks = [
-    { href: `${PATH_PREFIX}index.html`, label: 'Home', key: 'home' },
+    { href: `${ROOT_PREFIX}index.html`, label: 'Home', key: 'home' },
     { href: `${PATH_PREFIX}catalogo.html`, label: 'Catálogo', key: 'catalogo' },
     { href: `${PATH_PREFIX}wishlist.html`, label: '❤️ Favoritos', key: 'wishlist' },
   ];
@@ -253,7 +254,7 @@ function buildHeader() {
   root.className = 'site-header';
   root.innerHTML = `
     <div class="header-wrap" style="padding: 0 24px;">
-      <a href="${PATH_PREFIX}index.html" class="logo" title="Ir para o Início">
+      <a href="${ROOT_PREFIX}index.html" class="logo" title="Ir para o Início">
         <img src="${ASSETS_PREFIX}images/veloz-logo.png" alt="Veloz Tênis" style="height: 80px; width: auto; object-fit: contain; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
       </a>
 
@@ -322,7 +323,7 @@ function buildBottomBar() {
   const wishCount = Storage.getWishlist().length;
 
   bar.innerHTML = `
-    <a href="${PATH_PREFIX}index.html" class="bottom-bar-item ${page === 'home' ? 'active' : ''}">
+    <a href="${ROOT_PREFIX}index.html" class="bottom-bar-item ${page === 'home' ? 'active' : ''}">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M3 9L12 2l9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
       </svg>
@@ -364,7 +365,7 @@ function buildFooter() {
       <div class="footer-grid">
         <div>
           <div style="margin-bottom:16px; display:inline-flex; align-items:center; gap:12px;">
-            <a href="${PATH_PREFIX}index.html" class="logo" title="Ir para o Início" style="display:inline-flex; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            <a href="${ROOT_PREFIX}index.html" class="logo" title="Ir para o Início" style="display:inline-flex; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
               <img src="${ASSETS_PREFIX}images/veloz-logo.png" alt="Veloz Tênis Ícone" style="height: 80px; width: auto; object-fit: contain;">
             </a>
             <img src="${ASSETS_PREFIX}images/veloz-tenis-escrita.png" alt="Veloz Tênis Escrita" style="height: 30px; width: auto; max-width: 100%; object-fit: contain;">
@@ -377,7 +378,7 @@ function buildFooter() {
         <div>
           <h4 class="footer-title">Navegação</h4>
           <div class="footer-links">
-            <a href="${PATH_PREFIX}index.html">Home</a>
+            <a href="${ROOT_PREFIX}index.html">Home</a>
             <a href="${PATH_PREFIX}catalogo.html">Catálogo</a>
             <a href="${PATH_PREFIX}wishlist.html">Favoritos</a>
             <a href="${PATH_PREFIX}carrinho.html">Carrinho</a>
@@ -1724,7 +1725,7 @@ function renderSuccessPage() {
 
       <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:14px; margin-top:32px">
         <a href="${PATH_PREFIX}catalogo.html" class="btn-outline btn-lg">👟 Continuar comprando</a>
-        <a href="${PATH_PREFIX}index.html" class="btn-primary btn-lg">🏠 Voltar para Home</a>
+        <a href="${ROOT_PREFIX}index.html" class="btn-primary btn-lg">🏠 Voltar para Home</a>
       </div>
     </div>`;
 }
