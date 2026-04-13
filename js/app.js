@@ -255,7 +255,7 @@ function buildHeader() {
   root.innerHTML = `
     <div class="header-wrap" style="padding: 0 24px;">
       <a href="${ROOT_PREFIX}index.html" class="logo" title="Ir para o Início">
-        <img src="${ASSETS_PREFIX}images/veloz-logo.png" alt="Veloz Tênis" style="height: 80px; width: auto; object-fit: contain; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <img src="${ASSETS_PREFIX}images/logo.PNG" alt="Veloz Tênis" style="height: 80px; width: auto; object-fit: contain; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
       </a>
 
       <div class="header-center">
@@ -366,7 +366,7 @@ function buildFooter() {
         <div>
           <div style="margin-bottom:16px; display:inline-flex; align-items:center; gap:12px;">
             <a href="${ROOT_PREFIX}index.html" class="logo" title="Ir para o Início" style="display:inline-flex; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-              <img src="${ASSETS_PREFIX}images/veloz-logo.png" alt="Veloz Tênis Ícone" style="height: 80px; width: auto; object-fit: contain;">
+              <img src="${ASSETS_PREFIX}images/logo.PNG" alt="Veloz Tênis Ícone" style="height: 80px; width: auto; object-fit: contain;">
             </a>
             <img src="${ASSETS_PREFIX}images/veloz-tenis-escrita.png" alt="Veloz Tênis Escrita" style="height: 30px; width: auto; max-width: 100%; object-fit: contain;">
           </div>
