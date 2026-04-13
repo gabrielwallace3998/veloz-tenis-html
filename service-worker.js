@@ -4,7 +4,7 @@
    e permite que o site funcione offline.
    ═══════════════════════════════════════════════════════ */
 
-const CACHE_NAME = 'veloztenis-v5'; // Versão atualizada com logo.PNG correto
+const CACHE_NAME = 'veloztenis-v6'; // Versão atualizada com logo.png correto
 
 const STATIC_ASSETS = [
   './',                
@@ -19,7 +19,9 @@ const STATIC_ASSETS = [
   './js/app.js',
   './js/animations.js',
   './js/produtos.js',
-  './json/manifest.json'
+  './json/manifest.json',
+  './images/logo.png',
+  './images/veloz-tenis-escrita.png'
 ];
 
 self.addEventListener('install', e => {

@@ -11,7 +11,8 @@
    0. DETECÇÃO DE CAMINHO (Raiz vs Pasta HTML)
    ════════════════════════════════════════════════════════ */
 // Detecta se estamos na raiz ou na pasta html/
-const isInHtmlFolder = window.location.pathname.includes('/html/');
+const isHome = document.body.dataset && document.body.dataset.page === 'home';
+const isInHtmlFolder = !isHome;
 const PATH_PREFIX = isInHtmlFolder ? '' : 'html/'; // Para páginas dentro de html/
 const ROOT_PREFIX = isInHtmlFolder ? '../' : ''; // Para voltar à raiz (index.html)
 const ASSETS_PREFIX = isInHtmlFolder ? '../' : '';
@@ -255,7 +256,7 @@ function buildHeader() {
   root.innerHTML = `
     <div class="header-wrap" style="padding: 0 24px;">
       <a href="${ROOT_PREFIX}index.html" class="logo" title="Ir para o Início">
-        <img src="${ASSETS_PREFIX}images/logo.PNG" alt="Veloz Tênis" style="height: 80px; width: auto; object-fit: contain; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <img src="${ASSETS_PREFIX}images/logo.png" alt="Veloz Tênis" style="height: 80px; width: auto; object-fit: contain; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
       </a>
 
       <div class="header-center">
@@ -286,11 +287,7 @@ function buildHeader() {
   const mobileNav = document.getElementById('mobile-nav');
 
   // Captura o evento de busca e redireciona para o catálogo com o termo pesquisado
-  form?.addEventListener('submit', e => {
-    e.preventDefault(); // Impede o recarregamento padrão da página
-    const term = input.value.trim();
-    // Redireciona para catalogo.html enviando o parâmetro 'q' na URL
-    window.location.href = term ? `catalogo.html?q=${encodeURIComponent(term)}` : 'catalogo.html';
+    window.location.href = term ? `${PATH_PREFIX}catalogo.html?q=${encodeURIComponent(term)}` : `${PATH_PREFIX}catalogo.html`;
   });
 
   // Toggle do menu mobile
@@ -366,7 +363,7 @@ function buildFooter() {
         <div>
           <div style="margin-bottom:16px; display:inline-flex; align-items:center; gap:12px;">
             <a href="${ROOT_PREFIX}index.html" class="logo" title="Ir para o Início" style="display:inline-flex; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-              <img src="${ASSETS_PREFIX}images/logo.PNG" alt="Veloz Tênis Ícone" style="height: 80px; width: auto; object-fit: contain;">
+              <img src="${ASSETS_PREFIX}images/logo.png" alt="Veloz Tênis Ícone" style="height: 80px; width: auto; object-fit: contain;">
             </a>
             <img src="${ASSETS_PREFIX}images/veloz-tenis-escrita.png" alt="Veloz Tênis Escrita" style="height: 30px; width: auto; max-width: 100%; object-fit: contain;">
           </div>
