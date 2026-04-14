@@ -9,7 +9,7 @@
 
 ## 📚 Informações Acadêmicas
 
-**Instituição:** [Sua Instituição]  
+**Instituição:** Estácio   
 **Disciplina:** Desenvolvimento Web  
 **Professor:** Paulo  
 **Aluno:** Gabriel Lima  
